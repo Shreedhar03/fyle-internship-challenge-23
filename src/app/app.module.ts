@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './screens/home/home.component';
+import { UserDetailsComponent } from './screens/user-details/user-details.component';
+import { FormsModule } from '@angular/forms';
+import { RepositoryCardComponent } from './components/repository-card/repository-card.component';
 
+const routes:Routes = [
+  { path: '', component: HomeComponent,title:'RepoReveal' },
+  { path: 'user/:username', component: UserDetailsComponent,title:'User' }
+]
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    UserDetailsComponent,
+    RepositoryCardComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
