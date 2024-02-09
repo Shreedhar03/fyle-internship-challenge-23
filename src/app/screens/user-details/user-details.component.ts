@@ -37,6 +37,8 @@ export class UserDetailsComponent {
         console.error(error.message);
         if (error.message.includes('404')) {
           this.navigate.navigate(['/not-found']);
+        }else{
+          this.userDetails = undefined;
         }
         this.repositories = [];
       }
