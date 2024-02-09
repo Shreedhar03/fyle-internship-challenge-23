@@ -9,10 +9,13 @@ import { HomeComponent } from './screens/home/home.component';
 import { UserDetailsComponent } from './screens/user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
 import { RepositoryCardComponent } from './components/repository-card/repository-card.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
 
 const routes:Routes = [
   { path: '', component: HomeComponent,title:'RepoReveal' },
-  { path: 'user/:username', component: UserDetailsComponent,title:'User' }
+  { path: 'user/:username', component: UserDetailsComponent,title:'User' },
+  { path: '**', component: NotFoundComponent,title:'404' },
 ]
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ const routes:Routes = [
     HomeComponent,
     UserDetailsComponent,
     RepositoryCardComponent,
+    NotFoundComponent,
+    SkeletonLoaderComponent,
   ],
   imports: [
     BrowserModule,
