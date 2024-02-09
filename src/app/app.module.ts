@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { RepositoryCardComponent } from './components/repository-card/repository-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 const routes:Routes = [
   { path: '', component: HomeComponent,title:'RepoReveal' },
@@ -26,6 +27,7 @@ const routes:Routes = [
     RepositoryCardComponent,
     NotFoundComponent,
     SkeletonLoaderComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

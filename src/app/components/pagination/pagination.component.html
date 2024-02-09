@@ -1,0 +1,52 @@
+<!-- pagination -->
+
+<section>
+    <div class="flex items-center justify-center gap-4 mt-16">
+        <button type="button"
+            class="flex items-center gap-2 bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+            <img src="../../../assets/previous.svg" alt="back" class="w-4 h-4">
+            Previous
+        </button>
+        <div class="flex items-center gap-2">
+            <!-- active -->
+            <button type="button" class="bg-primary text-white hover:bg-primary/90 transition-all px-4 py-2 rounded-lg">
+                1
+            </button>
+            <button type="button"
+                class="bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+                2
+            </button>
+            <button type="button"
+                class="bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+                3
+            </button>
+            <button type="button"
+                class="bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+                4
+            </button>
+            <button type="button"
+                class="bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+                5
+            </button>
+
+        </div>
+        <button type="button"
+            class="flex items-center gap-2 bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+            Next
+            <img src="../../../assets/next.svg" alt="next" class="w-4 h-4">
+        </button>
+    </div>
+    <!-- results per page -->
+    <div class="flex items-center justify-center gap-4 mt-8">
+        <p class="text-gray-600">Results per page:</p>
+        <select name="resultsPerPage" id="resultsPerPage"
+            class="bg-primary/20 text-primary hover:bg-primary/30 transition-all px-4 py-2 rounded-lg">
+            <!-- upto 100 -->
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+
+        </select>
+    </div>
+</section>
