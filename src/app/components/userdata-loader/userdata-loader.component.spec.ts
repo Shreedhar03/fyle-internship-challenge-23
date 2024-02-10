@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkeletonLoaderComponent } from './skeleton-loader.component';
+import { SkeletonLoaderComponent } from './userdata-loader.component';
 
 describe('SkeletonLoaderComponent', () => {
   let component: SkeletonLoaderComponent;

@@ -1,12 +1,15 @@
-<section class="max-w-7xl mx-auto my-16 px-6 xl:px-0">
+<section class="max-w-[76rem] mx-auto my-16 px-6 xl:px-0" *ngIf="!errorMessageHeader">
     <!-- userInfo -->
 
-    <section class="flex items-center gap-10 flex-col md:flex-row">
+    <section class="flex items-center gap-10 flex-col md:flex-row" *ngIf="!userDataLoading">
         <div class="flex flex-col xl:flex-row items-center gap-10 md:w-1/2">
             <img [src]="userDetails?.avatar_url || userImage" alt="user"
                 class="w-64 h-64 object-cover border-2 border-[#212123] p-[3px] rounded-full">
             <div class="flex flex-col gap-3 items-center">
-                <h1 class="text-3xl font-medium text-center">{{userDetails?.name}}</h1>
+                <h1 class="text-3xl font-medium text-center">{{userDetails?.name}}
+                    <span class="text-xl text-primary font-light block text-center">@{{userDetails?.login}}</span>
+                </h1>
+
                 <!-- stats -->
                 <div class="flex items-center gap-4 mt-4 sm:mt-0">
                     <div class="flex flex-col items-center">
@@ -41,15 +44,17 @@
                 <div class="flex flex-col gap-2">
                     <div class="flex items-center gap-2" *ngIf="userDetails?.location">
                         <img src="../../../assets/location.svg" alt="location" class="w-6 h-6">
-                        <h3 class="text-base leading-[18px] line-clamp-2 truncate text-ellipsis">{{userDetails?.location}}</h3>
+                        <h3 class="text-base leading-[18px] line-clamp-2 truncate text-ellipsis">
+                            {{userDetails?.location}}</h3>
                     </div>
-                    <a [href]="userDetails?.blog" *ngIf="userDetails?.blog" target="_blank" class="flex items-center gap-2">
+                    <a [href]="userDetails?.blog" *ngIf="userDetails?.blog" target="_blank"
+                        class="flex items-center gap-2">
                         <img src="../../../assets/globe.svg" alt="location" class="w-6 h-6">
                         <h3 class="text-base leading-[18px] line-clamp-2 truncate text-ellipsis">{{userDetails?.blog}}
                         </h3>
                     </a>
-                    <a [href]="'https://twitter.com/' + userDetails?.twitter_username" *ngIf="userDetails?.twitter_username" target="_blank"
-                        class="flex items-center gap-2">
+                    <a [href]="'https://twitter.com/' + userDetails?.twitter_username"
+                        *ngIf="userDetails?.twitter_username" target="_blank" class="flex items-center gap-2">
                         <img src="../../../assets/x.svg" alt="location" class="w-6 h-6">
                         <h3 class="text-base leading-[18px] line-clamp-2 truncate text-ellipsis">
                             {{userDetails?.twitter_username || 'Unavailable'}}
@@ -63,15 +68,32 @@
         </div>
     </section>
 
-
     <!-- repositories -->
-    <div class="mt-16">
+    <div class="mt-16" *ngIf="!reposLoading">
         <h1 class="text-3xl">Repositories</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             <app-repository-card *ngFor="let repo of repositories" [repo]="repo"></app-repository-card>
         </div>
     </div>
-    <!-- pagination -->
 
-    <app-pagination />
+    <!-- pagination -->
+    <app-pagination *ngIf="!reposLoading" />
 </section>
+
+
+<app-userdata-loader *ngIf="userDataLoading" />
+<app-repo-loader *ngIf="reposLoading" />
+
+<div class="flex flex-col items-center my-12 mx-5" *ngIf="errorMessageHeader">
+    <h3 class="text-2xl font-normal text-red-700">
+        {{errorMessageHeader}}
+    </h3>
+    <p class="text-xl font-light text-gray-700">
+        {{errorMessageBody}}
+    </p>
+    <a routerLink="/">
+        <button class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded mt-4">
+            Go to Home
+        </button>
+    </a>
+</div>

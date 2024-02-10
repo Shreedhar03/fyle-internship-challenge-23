@@ -9,9 +9,14 @@ import { Repository } from 'src/models/repository.model';
 export class RepositoryCardComponent {
 
   @Input() repo: Repository | undefined;
+  languages: string[] = [];
+  ngonInit() {
+    this.languages = Array.from(Object.keys(this.repo?.languages || {}));
+    console.log(this.languages)
+  }
 
-  copied:boolean = false;
-  copyToClipboard(){
+  copied: boolean = false;
+  copyToClipboard() {
     navigator.clipboard.writeText(this.repo?.clone_url || '');
     this.copied = true;
     setTimeout(() => {

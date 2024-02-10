@@ -21,4 +21,8 @@ export class ApiService {
   getRepos(githubUsername: string) {
     return this.httpClient.get<Repository[]>(`https://api.github.com/users/${githubUsername}/repos`);
   }
+
+  getRepoLanguages(githubUsername: string, repoName: string) {
+    return this.httpClient.get(`https://api.github.com/repos/${githubUsername}/${repoName}/languages`);
+  }
 }

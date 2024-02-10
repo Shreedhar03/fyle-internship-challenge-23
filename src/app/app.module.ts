@@ -10,8 +10,9 @@ import { UserDetailsComponent } from './screens/user-details/user-details.compon
 import { FormsModule } from '@angular/forms';
 import { RepositoryCardComponent } from './components/repository-card/repository-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
+import { UserDataLoaderComponent } from './components/userdata-loader/userdata-loader.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { RepoLoaderComponent } from './components/repo-loader/repo-loader.component';
 
 const routes:Routes = [
   { path: '', component: HomeComponent,title:'RepoReveal' },
@@ -26,8 +27,9 @@ const routes:Routes = [
     UserDetailsComponent,
     RepositoryCardComponent,
     NotFoundComponent,
-    SkeletonLoaderComponent,
+    UserDataLoaderComponent,
     PaginationComponent,
+    RepoLoaderComponent,
   ],
   imports: [
     BrowserModule,

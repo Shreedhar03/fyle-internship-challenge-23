@@ -76,6 +76,7 @@ export interface Repository {
     stargazers_count: number;
     watchers_count: number;
     language: string | null;
+    languages:object | null;
     has_issues: boolean;
     has_projects: boolean;
     has_downloads: boolean;
